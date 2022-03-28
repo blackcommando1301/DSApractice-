@@ -15,16 +15,22 @@ public class rotatedSortedArray{
     public static int find(int[] arr,int k){
         int st=0;
         int end=arr.length-1;
+        
         while(st<=end){
             int mid=st+(end-st)/2;
-            if(arr[mid]==k){
+            if(arr[st]==k){
+                return st;
+            }else if(arr[end]==k){
+                return end;
+            }
+            else if(arr[mid]==k){
                 return mid;
             }
             else if(arr[mid]>arr[end]){
                 if(arr[mid]>k){
-                    st=mid+1;
+                    end=mid-1;
                 }else{
-                    end=mid-1;    
+                    st=mid+1;    
                 }
             }else if(arr[mid]<arr[st]){
                 if(arr[mid]<k){
