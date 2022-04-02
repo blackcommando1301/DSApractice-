@@ -4,7 +4,7 @@ public class binarysearchlowlevel {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
         int[] arr=new int[n];
-        arr=input(arr,sc);
+        
         int k=sc.nextInt();
         int index=binarysearch(arr, k);
         System.out.println(index);
@@ -12,12 +12,31 @@ public class binarysearchlowlevel {
 
 
     }
-    public static int[] input(int[] arr,Scanner sc){
-        for(int i=0;i<arr.length;i++){
-            arr[i]=sc.nextInt();
+    public class Solution {
+        public int solve(int[] arr, int b) {
+            int min=arr[1];
+            int sum=0;
+            for(int i=0;i<arr.length;i++){
+                sum+=arr[i];
+                min=Math.min(min,arr[i]);
+            }
+            sum-=b;
+            int newsum=0;
+            int ans=0;
+            for(int j=min;newsum==sum;j++){
+                ans=j;
+            for(int i=0;i<arr.length;i++){
+                 newsum=0;
+                if(arr[i]>j){
+                    int k=arr[i]-j;
+                    newsum+=arr[i]-k;
+                }
+            }
+            }return ans;
         }
-        return arr;
     }
+    
+    
     public static int binarysearch(int[] arr,int k){
         int st=0;
         int end=arr.length-1;
