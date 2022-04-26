@@ -1,7 +1,7 @@
 import java.util.*;
 public class permutation {
     public static void main(String[] args) {
-        String s="abcd";
+        String s="abc";
         System.out.println(permu(s));
 
     }
